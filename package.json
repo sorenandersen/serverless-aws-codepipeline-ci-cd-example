@@ -1,0 +1,25 @@
+{
+  "name": "serverless-aws-codepipeline-ci-cd-example",
+  "version": "0.1.0",
+  "description": "Automated deployment of a serverless application with the Serverless Framework and AWS CodePipeline",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "sls": "serverless",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "aws-sdk": "^2.829.0",
+    "jest": "^26.6.3",
+    "lodash": "^4.17.20",
+    "prettier": "^2.2.1",
+    "serverless": "^2.19.0",
+    "serverless-iam-roles-per-function": "^3.1.0"
+  },
+  "dependencies": {
+    "@dazn/lambda-powertools-logger": "^1.28.1"
+  }
+}

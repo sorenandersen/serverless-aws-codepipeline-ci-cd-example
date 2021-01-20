@@ -1,0 +1,25 @@
+service: demo-aws-codepipeline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 128
+  stage: ${opt:stage, 'dev'}
+  environment:
+    LOG_LEVEL: ${self:custom.logLevel.${self:provider.stage}, self:custom.logLevel.default}
+
+plugins:
+  - serverless-iam-roles-per-function
+
+custom:
+  logLevel:
+    prod: WARN
+    default: DEBUG
+
+functions:
+  index:
+    handler: src/functions/index.handler
+    events:
+      - httpApi:
+          path: /
+          method: GET
