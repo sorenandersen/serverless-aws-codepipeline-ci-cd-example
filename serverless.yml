@@ -2,9 +2,11 @@ service: demo-aws-codepipeline
 
 provider:
   name: aws
+  region: eu-west-1
+  stage: ${opt:stage, 'dev'}
   runtime: nodejs12.x
   memorySize: 128
-  stage: ${opt:stage, 'dev'}
+  logRetentionInDays: 3
   environment:
     LOG_LEVEL: ${self:custom.logLevel.${self:provider.stage}, self:custom.logLevel.default}
 
